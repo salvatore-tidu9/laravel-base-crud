@@ -30,6 +30,7 @@ class SuitController extends Controller
     public function create()
     {
         //
+        return view('suits.create');
     }
 
     /**
@@ -41,6 +42,22 @@ class SuitController extends Controller
     public function store(Request $request)
     {
         //
+        // @dd($request);
+        $data = $request->all();
+
+        $new_article = new Suit();
+
+        // $new_article->modello = $data['modello'];
+        // $new_article->marca = $data['marca'];
+        // $new_article->img = $data['img'];
+        // $new_article->info = $data['info'];
+
+        $new_article->fill($data);
+
+        $new_article->save();
+
+        return redirect()->route('articles.index');
+
     }
 
     /**

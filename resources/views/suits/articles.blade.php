@@ -22,6 +22,9 @@
             </div>
             @endforeach
         </div>
+        <div class="row text-center">
+            <a href="{{ route('articles.create')}}" type="button" class="btn btn-primary">Aggiorna Catalogo</a>
+        </div>
     </div>
 
 @endsection
