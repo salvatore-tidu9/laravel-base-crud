@@ -116,7 +116,7 @@ body {
 
 .card_container {
     position: relative;
-    margin-bottom: 30px;
+    margin: 30px 0;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -173,6 +173,21 @@ body {
     border: 1px solid rgb(255, 255, 255);
 }
 
+.btn_p {
+    background-color: rgb(23, 133, 42);
+    border: 1px solid rgb(23, 133, 42);
+}
+
+.btn_w {
+    background-color: rgb(214, 101, 35);
+    border: 1px solid rgb(214, 101, 35);
+}
+
+.btn_d {
+    background-color: rgb(214, 35, 35);
+    border: 1px solid rgb(214, 35, 35);
+}
+
 .details_container {
     /* display: inline-block; */
     /* width: 500px;
@@ -197,6 +212,18 @@ body {
 }
 .bt:hover {
     color: rgb(255, 255, 255);
+}
+
+.alrt ul li {
+    margin-left: 10px;
+}
+
+.btn_p {
+    margin-top: 50px;
+}
+
+.form_d {
+    display: inline-block;
 }
 
 @media screen and (max-width: 991px) {

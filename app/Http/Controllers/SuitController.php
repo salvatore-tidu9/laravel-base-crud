@@ -43,6 +43,13 @@ class SuitController extends Controller
     {
         //
         // @dd($request);
+        $request->validate([
+            'modello' => 'required|unique:suits|max:255',
+            'marca' => 'required|max:255',
+            'img' => 'required',
+            'info' => 'required'
+        ]);
+
         $data = $request->all();
 
         $new_article = new Suit();
@@ -86,9 +93,11 @@ class SuitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Suit $article)
     {
         //
+        // @dd($article);
+        return view('suits.edit', compact('article'));
     }
 
     /**
@@ -98,9 +107,15 @@ class SuitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Suit $article)
     {
         //
+        $data = $request->all();
+        // @dd($data);
+        $article->update($data);
+
+        return redirect()->route('articles.index');
+        
     }
 
     /**
@@ -109,8 +124,10 @@ class SuitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Suit $article)
     {
         //
+        $article->delete();
+        return redirect()->route('articles.index');
     }
 }

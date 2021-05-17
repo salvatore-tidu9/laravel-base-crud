@@ -15,15 +15,23 @@
                     <div class="card_container_wrapper">
                         <h5>{{$article['modello']}}</h5>
                         <h6>{{$article['marca']}}</h6>
-                        <a href="{{ route('articles.show', ['article' => $article -> id]) }}" type="button" class="btn btn-info">Dettagli</a>
+                        <a href="{{ route('articles.show', ['article' => $article -> id]) }}" type="button" class="btn_i btn btn-info">Dettagli</a>
                     </div>
                     <img src="{{$article['img']}}" alt="">
+                </div>
+                <div class="row text-center">
+                    <a href="{{ route('articles.edit', ['article' => $article -> id]) }}" type="button" class="btn_w btn btn-warning">Modifica</a>
+                    <form action="{{ route('articles.destroy', ['article' => $article -> id]) }}" method="post" class="form_d">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn_d btn btn-danger">Cancella</button>
+                    </form>
                 </div>
             </div>
             @endforeach
         </div>
         <div class="row text-center">
-            <a href="{{ route('articles.create')}}" type="button" class="btn btn-primary">Aggiorna Catalogo</a>
+            <a href="{{ route('articles.create')}}" type="button" class="btn_p btn btn-primary">Aggiorna Catalogo</a>
         </div>
     </div>
 

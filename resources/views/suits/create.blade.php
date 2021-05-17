@@ -4,6 +4,22 @@
 
 @section('content')
 
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            @if ($errors->any())
+                <div class="alrt alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+    </div>
+</div>
+
 <form class="form" action="{{route('articles.store')}}" method="post">
 
     @csrf
